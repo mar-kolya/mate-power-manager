@@ -1,0 +1,38 @@
+From: Matthew Pottage <matthewpottage@invincitech.com>
+Date: Thu, 2 Jul 2015 15:33:10 +0100
+Subject: Check both the "Backlight" and "BACKLIGHT" xrandr properties for a
+ backlight.
+
+Added checking the "Backlight" property. "BACKLIGHT" appears to be the legacy
+property.
+
+This resolves an issue where xbacklight can change the backlight, but
+mate-power-manager can't.
+---
+ src/gpm-brightness.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/src/gpm-brightness.c b/src/gpm-brightness.c
+index 314403e..d1ebc72 100644
+--- a/src/gpm-brightness.c
++++ b/src/gpm-brightness.c
+@@ -270,11 +270,15 @@ gpm_brightness_setup_display (GpmBrightness *brightness)
+ 		egg_debug ("RandR version %d.%d too old", major, minor);
+ 		return FALSE;
+ 	}
+-	/* can we support BACKLIGHT */
+-	brightness->priv->backlight = XInternAtom (brightness->priv->dpy, "BACKLIGHT", True);
++    /* Can we support "Backlight" */
++	brightness->priv->backlight = XInternAtom (brightness->priv->dpy, "Backlight", True);
+ 	if (brightness->priv->backlight == None) {
+-		egg_debug ("No outputs have backlight property");
+-		return FALSE;
++        /* Do we support "BACKLIGHT" (legacy) */
++        brightness->priv->backlight = XInternAtom (brightness->priv->dpy, "BACKLIGHT", True);
++        if (brightness->priv->backlight == None) {
++            egg_debug ("No outputs have backlight property");
++            return FALSE;
++        }
+ 	}
+ 	return TRUE;
+ }

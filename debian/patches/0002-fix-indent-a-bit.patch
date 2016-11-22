@@ -1,0 +1,116 @@
+From: monsta <monsta@inbox.ru>
+Date: Mon, 21 Nov 2016 23:55:20 +0300
+Subject: fix indent a bit
+
+---
+ applets/brightness/brightness-applet.c | 6 +++---
+ applets/inhibit/inhibit-applet.c       | 2 +-
+ src/gpm-backlight.c                    | 2 +-
+ src/gpm-brightness.c                   | 2 +-
+ src/gpm-control.c                      | 2 +-
+ src/gpm-networkmanager.c               | 2 +-
+ src/msd-osd-window.c                   | 2 +-
+ 7 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/applets/brightness/brightness-applet.c b/applets/brightness/brightness-applet.c
+index 0972382..5cd7f6b 100644
+--- a/applets/brightness/brightness-applet.c
++++ b/applets/brightness/brightness-applet.c
+@@ -22,7 +22,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <stdio.h>
+@@ -71,8 +71,8 @@ typedef struct{
+ GType                gpm_brightness_applet_get_type  (void);
+ 
+ 
+-#define	GPM_DBUS_SERVICE		        "org.mate.PowerManager"
+-#define	GPM_DBUS_PATH_BACKLIGHT		    "/org/mate/PowerManager/Backlight"
++#define	GPM_DBUS_SERVICE		"org.mate.PowerManager"
++#define	GPM_DBUS_PATH_BACKLIGHT		"/org/mate/PowerManager/Backlight"
+ #define	GPM_DBUS_INTERFACE_BACKLIGHT	"org.mate.PowerManager.Backlight"
+ 
+ static void      gpm_brightness_applet_class_init (GpmBrightnessAppletClass *klass);
+diff --git a/applets/inhibit/inhibit-applet.c b/applets/inhibit/inhibit-applet.c
+index 00698c1..8acec87 100644
+--- a/applets/inhibit/inhibit-applet.c
++++ b/applets/inhibit/inhibit-applet.c
+@@ -22,7 +22,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <stdio.h>
+diff --git a/src/gpm-backlight.c b/src/gpm-backlight.c
+index 48a33c7..82841b3 100644
+--- a/src/gpm-backlight.c
++++ b/src/gpm-backlight.c
+@@ -21,7 +21,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <stdlib.h>
+diff --git a/src/gpm-brightness.c b/src/gpm-brightness.c
+index 686f676..314403e 100644
+--- a/src/gpm-brightness.c
++++ b/src/gpm-brightness.c
+@@ -20,7 +20,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <stdlib.h>
+diff --git a/src/gpm-control.c b/src/gpm-control.c
+index 4091e0c..c334fb5 100644
+--- a/src/gpm-control.c
++++ b/src/gpm-control.c
+@@ -20,7 +20,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <stdlib.h>
+diff --git a/src/gpm-networkmanager.c b/src/gpm-networkmanager.c
+index 3b62406..add8fc0 100644
+--- a/src/gpm-networkmanager.c
++++ b/src/gpm-networkmanager.c
+@@ -20,7 +20,7 @@
+  */
+ 
+ #ifdef HAVE_CONFIG_H
+-#  include <config.h>
++#include <config.h>
+ #endif
+ 
+ #include <glib.h>
+diff --git a/src/msd-osd-window.c b/src/msd-osd-window.c
+index 89a9272..1b97df1 100644
+--- a/src/msd-osd-window.c
++++ b/src/msd-osd-window.c
+@@ -339,7 +339,7 @@ expose_when_composited (GtkWidget *widget, GdkEventExpose *event)
+         cairo_paint_with_alpha (context, window->priv->fade_out_alpha);
+ #endif
+ 
+- done:
++done:
+         if (surface != NULL) {
+                 cairo_surface_destroy (surface);
+         }
