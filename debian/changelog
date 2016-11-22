@@ -1,3 +1,10 @@
+mate-power-manager (1.16.0-1kolya1) yakkety; urgency=medium
+
+  * Update to upstream master
+  * Use newer way to change brightness in X11
+
+ -- Nikolay Martynov <mar.kolya@gmail.com>  Mon, 21 Nov 2016 23:06:09 -0500
+
 mate-power-manager (1.16.0-1) unstable; urgency=medium
 
   [ Martin Wimpress ]
